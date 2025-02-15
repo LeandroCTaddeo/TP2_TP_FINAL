@@ -24,6 +24,7 @@
       </a>
     </div>
     <!-- Botones -->
+     <br>
     <button class="btn btn-success my-3 mr-3" @click="goToEstrenos">Ver Estrenos</button>
   </div>
 </template>
@@ -41,6 +42,11 @@ export default {
 </script>
 <style scoped>
 h1 {
-  color: black;
+  color: white;
+}
+.container {
+  background-color: #343a40;
+  color: #343a40;
+  min-height: 85.6vh; /* Ocupa el 100% de la altura de la pantalla */
 }
 </style>

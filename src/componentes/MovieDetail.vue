@@ -2,7 +2,6 @@
   <div>
     <div v-if="movieDetail">
       <h2>{{ movieDetail.title }}</h2>
-      <img :src="'https://image.tmdb.org/t/p/w500/' + movieDetail.poster_path" alt="movie poster" class="img-fluid">
       <p><strong>Fecha de estreno:</strong> {{ movieDetail.release_date }}</p>
       <p><strong>Resumen:</strong> {{ movieDetail.overview }}</p>
       <p><strong>Género:</strong> {{ movieDetail.genres.map(genre => genre.name).join(', ') }}</p>

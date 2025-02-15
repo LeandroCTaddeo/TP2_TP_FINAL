@@ -59,6 +59,9 @@
   };
   </script>
   <style scoped>
+  h2 {
+    color: white;
+  }
   .spinner {
    text-align: center;
    font-size: 20px;
