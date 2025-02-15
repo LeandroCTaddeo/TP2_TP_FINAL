@@ -1,9 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import axios from 'axios';
-
 Vue.use(Vuex);
-
 export default new Vuex.Store({
   state: {
     movieDetail: null,
@@ -25,7 +23,7 @@ export default new Vuex.Store({
     async fetchMovieDetail({ commit }, id) {
       commit('setLoading', true);
       try {
-        const response = await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=YOUR_API_KEY&language=es-ES`);
+        const response = await axios.get(`https://679a41f8747b09cdccce3cd1.mockapi.io/Movies/${id}`);
         commit('setMovieDetail', response.data);
         commit('setLoading', false);
       } catch (error) {
