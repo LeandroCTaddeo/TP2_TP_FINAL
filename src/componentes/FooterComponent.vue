@@ -1,7 +1,7 @@
 <template>
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2025 CineApp. Todos los derechos reservados.</p>
+      <p>&copy; 2025 CineApp. Leandro Christian Taddeo.</p>
     </div>
   </footer>
 </template>

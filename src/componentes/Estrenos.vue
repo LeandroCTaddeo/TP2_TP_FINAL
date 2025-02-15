@@ -20,7 +20,7 @@
   </template>
   <script>
   /* eslint-disable vue/multi-word-component-names */
-  import axios from "@/axios"; // Asegúrate de que está bien importado
+  import axios from "@/axios"; // Importamos axios
   export default {
    name: "Estrenos",
    data() {
