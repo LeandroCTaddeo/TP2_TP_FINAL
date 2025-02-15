@@ -1,45 +1,74 @@
 <template>
   <div class="container">
-    <h1 class="my-5">Estrenos</h1>
-    
-    <!-- Listado de Estrenos -->
-    <div class="row">
-      <div v-for="(pelicula, index) in peliculas" :key="index" class="col-md-4 mb-4">
-        <div class="card">
-          <img :src="pelicula.poster" class="card-img-top" alt="Poster de la película">
-          <div class="card-body">
-            <h5 class="card-title">{{ pelicula.titulo }}</h5>
-            <p class="card-text">{{ pelicula.descripcion }}</p>
-            <button class="btn btn-danger" @click="verDetalles(pelicula)">Ver Detalles</button>
-          </div>
-        </div>
-      </div>
-    </div>
+  <h2 class="text-center my-4">Estrenos</h2>
+  <div v-if="loading" class="spinner">Cargando...</div>
+  <div v-if="error" class="error">{{ error }}</div>
+  <div v-else class="row">
+  <div v-for="movie in movies" :key="movie.id" class="col-md-4 mb-4">
+  <div class="card">
+  <div class="card-body">
+  <h5 class="card-title">{{ movie.TituloPelicula }}</h5>
+  <button @click="toggleSynopsis(movie.id)" class="btn btn-primary">
+               {{ movie.showSynopsis ? "Ocultar Sinopsis" : "Ver Sinopsis" }}
+  </button>
+  <p v-if="movie.showSynopsis" class="mt-2">{{ movie.Sinopsis }}</p>
   </div>
-</template>
-
-<script>
-// Desactivar ESLint solo para esta regla en este archivo
-/* eslint-disable vue/multi-word-component-names */
-export default {
-  name: 'Estrenos',
-  data() {
-    return {
-      peliculas: [
-        { titulo: 'Pelicula 1', descripcion: 'Descripción de la película 1', poster: 'https://via.placeholder.com/150' },
-        { titulo: 'Pelicula 2', descripcion: 'Descripción de la película 2', poster: 'https://via.placeholder.com/150' },
-        { titulo: 'Pelicula 3', descripcion: 'Descripción de la película 3', poster: 'https://via.placeholder.com/150' },
-      ]
-    };
-  },
-  methods: {
-    verDetalles(pelicula) {
-      this.$router.push({ name: 'detalle', params: { id: pelicula.id } });
-    }
+  </div>
+  </div>
+  </div>
+  </div>
+  </template>
+  <script>
+  /* eslint-disable vue/multi-word-component-names */
+  import axios from "@/axios"; // Asegúrate de que está bien importado
+  export default {
+   name: "Estrenos",
+   data() {
+     return {
+       movies: [],
+       loading: false,
+       error: null,
+     };
+   },
+   methods: {
+     async fetchMovies() {
+       this.loading = true;
+       this.error = null;
+       try {
+         const response = await axios.get("Movies"); // Llama a MockAPI
+         this.movies = response.data.map(movie => ({
+           ...movie,
+           showSynopsis: false, // Agregamos una propiedad para manejar el botón
+         }));
+       } catch (error) {
+         this.error = "Error al cargar las películas.";
+       } finally {
+         this.loading = false;
+       }
+     },
+     toggleSynopsis(id) {
+       const movie = this.movies.find(m => m.id === id);
+       if (movie) {
+         movie.showSynopsis = !movie.showSynopsis;
+       }
+     }
+   },
+   created() {
+     this.fetchMovies();
+   }
+  };
+  </script>
+  <style scoped>
+  .spinner {
+   text-align: center;
+   font-size: 20px;
+   color: #007bff;
   }
-};
-</script>
-
-<style scoped>
-/* Aquí puedes agregar tus estilos personalizados */
-</style>
+  .error {
+   color: red;
+   text-align: center;
+  }
+  .card {
+   text-align: center;
+  }
+  </style>
