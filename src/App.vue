@@ -4,10 +4,8 @@
     <router-view />
   </div>
 </template>
-
 <script>
 import NavBar from './componentes/NavBar.vue';
-
 export default {
   name: 'App',
   components: {
@@ -15,7 +13,6 @@ export default {
   },
 };
 </script>
-
 <style>
 h1 {
   color: blue;

@@ -8,18 +8,24 @@
     </div>
   </div>
 </template>
-
 <script>
+
 export default {
+
   name: 'MovieCard',
+
   props: {
+
     movie: Object
+
   }
+
 };
 </script>
-
 <style scoped>
 .card {
+
   margin-bottom: 20px;
+
 }
 </style>

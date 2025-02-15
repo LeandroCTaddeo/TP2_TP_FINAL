@@ -7,15 +7,12 @@
       <p><strong>Resumen:</strong> {{ movieDetail.overview }}</p>
       <p><strong>Género:</strong> {{ movieDetail.genres.map(genre => genre.name).join(', ') }}</p>
     </div>
-
     <div v-if="loading" class="spinner">Cargando...</div>
     <div v-if="error" class="error">{{ error }}</div>
   </div>
 </template>
-
 <script>
 import { mapState, mapActions } from 'vuex';
-
 export default {
   props: ['id'],
   computed: {
@@ -33,17 +30,18 @@ export default {
   }
 };
 </script>
-
 <style scoped>
 img {
   max-width: 100%;
   margin-bottom: 20px;
 }
+
 .spinner {
   text-align: center;
   font-size: 20px;
   color: #007bff;
 }
+
 .error {
   color: red;
   text-align: center;
