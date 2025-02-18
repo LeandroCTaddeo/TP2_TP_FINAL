@@ -20,7 +20,7 @@
   </template>
   <script>
   /* eslint-disable vue/multi-word-component-names */
-  import axios from "@/axios"; // Importamos axios
+  import {instance} from "@/axios"; // Importamos axios
   export default {
    name: "Estrenos",
    data() {
@@ -35,7 +35,7 @@
        this.loading = true;
        this.error = null;
        try {
-         const response = await axios.get("Movies"); // Llama a MockAPI
+         const response = await instance.get("Movies"); // Llama a MockAPI
          this.movies = response.data.map(movie => ({
            ...movie,
            showSynopsis: false, // Agregamos una propiedad para manejar el botón
