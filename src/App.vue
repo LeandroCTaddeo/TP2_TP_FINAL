@@ -2,17 +2,17 @@
   <div id="app">
     <NavBar />
     <router-view></router-view>
-    <FooterComponent />
+    <Footer />
   </div>
 </template>
 <script>
-import FooterComponent from './componentes/FooterComponent.vue';
+import Footer from './componentes/Footer.vue';
 import NavBar from './componentes/NavBar.vue';
 export default {
   name: 'App',
   components: {
     NavBar,
-    FooterComponent,
+    Footer,
   },
 };
 </script>
@@ -24,6 +24,6 @@ h1 {
   margin-top: 20px;
 }
 #app {
-  background-color: #343a40
+  background-color: #202938
 }
 </style>

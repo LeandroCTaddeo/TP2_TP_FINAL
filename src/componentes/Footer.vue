@@ -7,14 +7,15 @@
 </template>
 
 <script>
+/* eslint-disable vue/multi-word-component-names */
 export default {
-  name: 'FooterComponent',
+  name: 'Footer',
 };
 </script>
 
 <style scoped>
 .footer {
-  background-color: #282828;
+  background-color: #202938;
   color: white;
   padding: 10px 0;
   text-align: center;

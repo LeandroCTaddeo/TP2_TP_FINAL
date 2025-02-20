@@ -31,8 +31,7 @@ h1 {
   color: white;
 }
 .container {
-  background-color: #343a40;
-  color: #343a40;
-  min-height: 85.6vh; /* Ocupa el 100% de la altura de la pantalla */
+  background-color: #202938;
+  min-height: 79.1vh;
 }
 </style>

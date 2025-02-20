@@ -73,7 +73,7 @@ export default {
       if (usuario) {
         this.$store.dispatch(usuario.isAdmin ? 'loguearseAdmin' : 'loguearse', usuario);
         alert('Bienvenido/a ' + usuario.nombre);
-        this.$router.push('/'); // Redirigir al home después de iniciar sesión
+        this.$router.push('/'); // Redirige al home después de iniciar sesión
       } else {
         alert('Credenciales invalidas')
         this.$store.dispatch('failLogin');
@@ -84,11 +84,11 @@ export default {
 
     async validarUsuario(user) {
       try {
-        // Obtener todos los usuarios registrados en MockAPI
+        // Obtenemos todos los usuarios registrados en MockAPI
         const response = await usuariosAPI.getUsuarios("UsuariosDB");
-        // Buscar el usuario con el email y la contraseña ingresados
+        // Busca el usuario con el email y la contraseña ingresados
         const usuario = response.data.find(u => u.email === user.email && u.password === user.password);        
-        return usuario || null; // Retornar el usuario si se encuentra, sino `null`       
+        return usuario || null; // Retorna el usuario si se encuentra, sino `null`       
       } catch (error) {
         console.error('Error en validarUsuario', error.message);
       }
@@ -97,7 +97,7 @@ export default {
     limpiarForm() {
       this.formData = this.getInitialData();
       if (this.formState._reset) {
-    this.formState._reset();  // Asegura que Vue Form borre el estado de validación
+    this.formState._reset();  // Aseguramos que Vue Form borre el estado de validación
   }
     },
 
@@ -116,5 +116,15 @@ export default {
 </script>
 
 <style scoped>
-
+.jumbotron {
+  color: #202938;
+  background-color: #202938;
+  min-height: 78.3vh;
+}
+div {
+  color: white;
+}
+.foto {
+  width:150px; height:150px;
+}
 </style>

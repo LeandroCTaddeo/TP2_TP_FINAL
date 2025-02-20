@@ -67,11 +67,20 @@
    font-size: 20px;
    color: #007bff;
   }
+  .mt-2 {
+    color: antiquewhite;
+  }
   .error {
    color: red;
    text-align: center;
   }
   .card {
    text-align: center;
+   background-color: #202938;
+  }
+  .card-title {
+   text-align: center;
+   color: antiquewhite;
+   background-color: #202938;
   }
   </style>

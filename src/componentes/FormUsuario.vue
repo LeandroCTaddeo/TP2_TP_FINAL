@@ -7,7 +7,6 @@
           alt="Icono Usuario"
         />
         <h1>Nuevo Usuario</h1>
-        <hr /><br />
         <div id="jumbotron3" class="jumbotron">
           <vue-form :state="formState" @submit.prevent="enviar">
             <!-- Campos del formulario -->
@@ -88,7 +87,7 @@
 </template>
 
 <script>
-import { usuariosAPI } from "@/axios"; // Asegúrate de importar correctamente usuariosAPI
+import { usuariosAPI } from "@/axios"; // importamos usuariosAPI
 
 export default {
   name: "FormUsuario",
@@ -111,16 +110,16 @@ export default {
     async enviar() {
       try {
         let newUser = { ...this.formData }; // Preparamos los datos para el nuevo usuario
-        console.log("Datos del nuevo usuario:", newUser); // Para depuración
+        console.log("Datos del nuevo usuario:", newUser);
 
-        // Aquí enviamos los datos al MockAPI (usamos la API de UsuariosDB)
+        // enviamos los datos al MockAPI (usamos la API de UsuariosDB)
         const response = await usuariosAPI.postUsuario(newUser); // Usamos el método postUsuario de usuariosAPI
         console.log("Respuesta del servidor:", response.data); // Ver la respuesta de MockAPI
 
         alert("Usuario registrado exitosamente");
         this.formData = this.getInitialData(); // Reseteamos los datos del formulario
        
-        this.$router.push("/peliculas"); // Redirigimos a otra vista, si es necesario
+        this.$router.push("/peliculas"); // Redirigimos a otra vista
       } catch (error) {
         console.error("Error al crear usuario:", error.message); // Mensaje de error
         alert("Error al registrar usuario");
@@ -147,10 +146,18 @@ h1 {
   color: antiquewhite;
 }
 
+.jumbotron {
+  text-align: center;
+  font-size: 1.3rem;
+  background-color: #202938;
+  border-radius: 5px;
+  margin-top:-50px;
+}
+
 #jumbotron3 {
   text-align: center;
   font-size: 1.3rem;
-  background-color: rgba(0, 0, 0, 0.842);
+  background-color: #202938;
   border-radius: 5px;
 }
 
@@ -160,7 +167,7 @@ hr {
 
 #jumbotron2 {
   color: antiquewhite;
-  background-image: url("https://images.unsplash.com/photo-1542931415-162aeab4418f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2500&q=60");
+  background-color: #202938;
 }
 
 .link1 {
